@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>V体育 · 杂志专题</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: #f5f3ef;
+      color: #1e2b2f;
+      line-height: 1.7;
+    }
+
+    /* 深色头图 ———— 杂志封面感 */
+    .hero {
+      background: #0f1a1d;
+      background-image: radial-gradient(circle at 10% 20%, #2e4349 0%, #0a1215 100%);
+      min-height: 45vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #c79a5e, #b5834a, #e2b87a);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: #efe3d2;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+      margin-bottom: 1rem;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #bbaa91;
+      max-width: 600px;
+      border-top: 1px solid #4f5d5b;
+      padding-top: 1.2rem;
+      margin-top: 0.2rem;
+      font-weight: 300;
+    }
+
+    /* 正文浅色区域 */
+    .magazine {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2.8rem 2rem 3.5rem;
+      background: #faf9f5;
+    }
+
+    /* 段落标题 */
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 350;
+      color: #203237;
+      border-left: 5px solid #bf8b4f;
+      padding-left: 1rem;
+      margin: 2.5rem 0 1.2rem 0;
+      letter-spacing: 0.04em;
+    }
+
+    .section-title:first-of-type {
+      margin-top: 0.2rem;
+    }
+
+    p {
+      margin-bottom: 1.4rem;
+      font-size: 1rem;
+      color: #2b3b3d;
+    }
+
+    /* 强调色用于链接 */
+    a {
+      color: #b3803f;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-bottom 0.2s, color 0.2s;
+      font-weight: 500;
+    }
+
+    a:hover {
+      border-bottom: 1px solid #b3803f;
+      color: #7f582b;
+    }
+
+    /* 卡片风格 — 对照表 / 场景卡片 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0 2.5rem;
+    }
+
+    .feature-card {
+      background: #f0ece4;
+      padding: 1.5rem 1.2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+      transition: transform 0.15s, box-shadow 0.2s;
+      border: 1px solid #dcd4c8;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    }
+
+    .feature-card h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #1e2f32;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      margin-bottom: 0;
+      color: #475b5b;
+    }
+
+    /* FAQ 摘要 */
+    .faq-brief {
+      background: #edebe3;
+      border-radius: 16px;
+      padding: 1.8rem 2rem;
+      margin: 2rem 0 2rem;
+    }
+
+    .faq-brief dt {
+      font-weight: 500;
+      color: #1f3438;
+      margin-bottom: 0.3rem;
+      font-size: 1.05rem;
+    }
+
+    .faq-brief dd {
+      margin-bottom: 1.2rem;
+      margin-left: 0;
+      color: #4a6061;
+      font-size: 0.95rem;
+    }
+
+    .faq-brief dd:last-of-type {
+      margin-bottom: 0;
+    }
+
+    /* 页尾访问提示 */
+    .footer-mag {
+      background: #dad5ca;
+      margin-top: 2.5rem;
+      padding: 2rem 2rem;
+      text-align: center;
+      border-radius: 6px;
+      color: #214045;
+      font-size: 0.95rem;
+    }
+
+    .footer-mag a {
+      font-weight: 600;
+      border-bottom: 1px solid #b3803f;
+      padding-bottom: 1px;
+    }
+
+    .footer-mag a:hover {
+      border-bottom: 2px solid #b3803f;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      .hero {
+        min-height: 38vh;
+        padding: 2rem 1.5rem;
+      }
+      .magazine {
+        padding: 1.8rem 1.2rem;
+      }
+      .section-title {
+        font-size: 1.35rem;
+        margin-top: 2rem;
+      }
+      .faq-brief {
+        padding: 1.3rem;
+      }
+    }
+
+    /* 小装饰 */
+    .divider {
+      width: 70px;
+      height: 2px;
+      background: #cfb696;
+      margin: 2rem 0 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图 hero -->
+  <header class="hero">
+    <h1>V体育 · 日常观照</h1>
+    <div class="sub">从查询、对照到延伸阅读，一份安静的专题记录</div>
+  </header>
+
+  <!-- 正文区：杂志风格 -->
+  <main class="magazine">
+
+    <!-- 背景说明（日常查询角度） -->
+    <h2 class="section-title">从一次日常查询开始</h2>
+    <p>
+      某个午后，像是随手翻开一本旧杂志，我想起最近几位朋友总在聊天时提起一个名字——<a href="https://m-sports-v.com">V体育</a>。起初只是好奇，想看看它到底涵盖哪些内容。于是从赛事数据、选手动态到社区讨论，一点一点对照着浏览下来，发现信息密度比想象中要高。后来每次想核对比赛时间或历史交锋记录，都会习惯性地打开那个页面，像翻阅一本常备的参考手册。
+    </p>
+
+    <!-- 三段自然介绍：从对照、场景、延伸切入 -->
+    <h2 class="section-title">对照与延伸 · 三个常见场景</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>赛前对照</h3>
+        <p>周末准备看几场直播，先列好对阵表。在<a href="https://m-sports-v.com">V体育</a>上对比近期状态、首发名单和场地信息，心里有个底，看球时也更投入。</p>
+      </div>
+      <div class="feature-card">
+        <h3>赛后延伸</h3>
+        <p>比赛结束总有些意犹未尽。战术复盘、球员采访、技术统计……把零散的信息拼起来，理解比赛的层次，延伸阅读的乐趣就在于此。</p>
+      </div>
+      <div class="feature-card">
+        <h3>日常翻阅</h3>
+        <p>没有比赛的日子，也会打开看几眼专题栏目。人物故事、数据图解、冷门知识，像杂志里的随笔栏目，轻松又不空洞。</p>
+      </div>
+    </div>
+
+    <p>
+      三个场景分别对应了三种使用节奏：快速对照、沉浸延伸、以及日常浏览。它们之间并不冲突，反而慢慢融合成一种习惯。在这个信息快速流动的时代，有一个安静、结构清晰的参考点，本身就是一种便利。
+    </p>
+
+    <!-- FAQ 摘要（自然带出特点） -->
+    <div class="faq-brief">
+      <dl>
+        <dt>内容覆盖范围？</dt>
+        <dd>涉及多种主流体育项目、联赛以及相关背景资料，结构偏向分类整理，便于按需查找。</dd>
+        <dt>更新与变化？</dt>
+        <dd>保持节奏更新，赛事期间信息相对密集，平时也会有专题和回顾内容，不会过于喧闹。</dd>
+        <dt>适合什么样的人？</dt>
+        <dd>不论是想快速查个数据，还是想花时间深入阅读，都能找到对应的入口。没有太多花哨的干扰。</dd>
+      </dl>
+    </div>
+
+    <p>
+      某种程度上，这类平台就像一本可以随时翻阅的体育杂志——不必抱着目的，随手翻开可能就有新发现。而它的价值，往往就藏在那些不经意的对照和延伸里。
+    </p>
+
+    <!-- 页尾访问提示（嵌入链接） -->
+    <div class="footer-mag">
+      <p>如果你也喜欢在赛前赛后翻阅一些扎实的信息，不妨试试从 <a href="https://m-sports-v.com">V体育</a> 开始，或许它就是你一直在找的那本“体育参考”。</p>
+      <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #5d7172;">—— 安静阅读，从容对照 ——</div>
+    </div>
+
+    <div class="divider"></div>
+
+  </main>
+</body>
+</html>
