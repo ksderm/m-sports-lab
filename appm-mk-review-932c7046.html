@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MK体育 · 站点说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'PingFang SC', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f9fafb;
+      color: #1e293b;
+      line-height: 1.7;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .page-wrap {
+      max-width: 720px;
+      width: 90%;
+      margin: 0 auto;
+      flex: 1;
+      padding: 3rem 0 2.5rem;
+    }
+
+    /* Hero 区域 — 极简横幅 */
+    .hero {
+      margin-bottom: 3.2rem;
+      padding: 2.5rem 0 1.8rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .hero-label {
+      display: inline-block;
+      background-color: #e6f0ff;
+      color: #2563eb;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 0.25rem 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: 2.25rem;
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      color: #0f172a;
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero h1 span {
+      font-weight: 600;
+      color: #2563eb;
+    }
+
+    .hero p {
+      color: #475569;
+      font-size: 0.95rem;
+      max-width: 580px;
+      margin-top: 0.6rem;
+    }
+
+    /* 正文卡片式段落 */
+    .section-card {
+      background-color: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.04);
+      padding: 1.8rem 2rem;
+      margin-bottom: 1.8rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .section-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .section-card h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+      color: #0f172a;
+      border-left: 4px solid #2563eb;
+      padding-left: 0.9rem;
+    }
+
+    .section-card p {
+      font-size: 0.95rem;
+      color: #334155;
+      margin-bottom: 0.7rem;
+    }
+
+    .section-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-card .highlight {
+      background-color: #f1f5f9;
+      border-radius: 8px;
+      padding: 0.8rem 1.2rem;
+      margin: 1rem 0 0.2rem;
+      font-size: 0.9rem;
+      color: #1e293b;
+    }
+
+    /* 特点列表 — 双栏简洁 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 0.8rem;
+    }
+
+    .feature-item {
+      background-color: #f8fafc;
+      border-radius: 12px;
+      padding: 0.8rem 1.2rem;
+      font-size: 0.9rem;
+      border: 1px solid #eef2f6;
+    }
+
+    .feature-item strong {
+      display: block;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 0.15rem;
+    }
+
+    /* FAQ 摘要 */
+    .faq-mini {
+      border-top: 1px solid #e2e8f0;
+      padding-top: 1.8rem;
+      margin-top: 0.6rem;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.8rem;
+      border-bottom: 1px dashed #e2e8f0;
+      padding-bottom: 0.8rem;
+    }
+
+    .faq-mini details:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .faq-mini summary {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      padding: 0.2rem 0;
+    }
+
+    .faq-mini details p {
+      font-size: 0.9rem;
+      color: #475569;
+      margin-top: 0.3rem;
+      padding-left: 0.3rem;
+    }
+
+    /* 页尾 */
+    .site-footer {
+      border-top: 1px solid #e2e8f0;
+      padding: 2rem 0 1.5rem;
+      margin-top: 2.5rem;
+      font-size: 0.85rem;
+      color: #64748b;
+      text-align: center;
+    }
+
+    .site-footer p {
+      max-width: 500px;
+      margin: 0 auto 0.5rem;
+    }
+
+    .site-footer .link-note {
+      background-color: #f1f5f9;
+      display: inline-block;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      color: #2563eb;
+      border: 1px solid #dbeafe;
+    }
+
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    a:hover {
+      border-bottom-color: #2563eb;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .page-wrap {
+        width: 92%;
+        padding: 2rem 0 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .section-card {
+        padding: 1.5rem 1.2rem;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-label {
+        font-size: 0.7rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <!-- Hero 横幅 -->
+    <header class="hero">
+      <div class="hero-label">杂志专题 · 站点介绍</div>
+      <h1><span>MK体育</span> 平台说明与背景</h1>
+      <p>一份平实、清晰的站点介绍，帮助你了解这个以体育内容为核心的信息入口。</p>
+    </header>
+
+    <!-- 第一段：站点由来与背景说明 -->
+    <section class="section-card">
+      <h2>从体育资讯到聚合起点</h2>
+      <p>MK体育 并非一个新兴的短期项目，而是经过持续维护与内容沉淀的体育信息聚合类站点。其定位是围绕体育赛事、运动文化以及相关资讯，为访客提供一个结构化的内容展示窗口。无论是团队球类、格斗项目还是户外运动，站点会定期整合具有参考价值的资料与观察，而非单纯的实时比分堆砌。</p>
+      <p>网站整体采用轻量化的信息架构，重点在于内容的可读性与分类清晰。与许多充斥着弹窗与复杂交互的同类站点不同，<a href="https://appm-mk.com">MK体育</a> 更倾向于用简洁的版面传递运动本身的节奏感。</p>
+    </section>
+
+    <!-- 第二段：可信说明与内容取向 -->
+    <section class="section-card">
+      <h2>为什么可以信赖这个站点</h2>
+      <p>在信息过载的时代，甄别体育内容的真实性与质量变得尤为重要。MK体育 的内容来源以公开的赛事数据、官方报道及经过交叉验证的资讯为主，不捏造新闻，也不采用诱导性标题。站点没有隐藏的跳转链或误导性广告，所有页面结构均保持透明。</p>
+      <p>同时，站点运营方注重内容合规与版权说明，引用素材时尽可能标注出处或采用合理使用原则。如果你希望找一个没有过度营销、信息密度适中的体育阅读场景，这里值得你花几分钟浏览。</p>
+      <div class="highlight">
+        ⚡ 补充说明：MK体育 不涉及任何金融、博彩或非法投注引导，内容严格限制在体育文化、赛事回顾与运动知识范畴。
+      </div>
+    </section>
+
+    <!-- 第三段：典型场景与阅读节奏 -->
+    <section class="section-card">
+      <h2>什么情况下适合打开 MK体育</h2>
+      <p>它不是一个实时滚动的新闻中心，而更像一本可以随时翻开的体育杂志。适合以下场景：</p>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <strong>晨间速览</strong>
+          花三五分钟了解昨日重点赛事与场外动态。
+        </div>
+        <div class="feature-item">
+          <strong>战术分析</strong>
+          针对热门比赛的基础拆解与数据回顾。
+        </div>
+        <div class="feature-item">
+          <strong>运动科普</strong>
+          规则演变、运动装备、历史冷门知识。
+        </div>
+        <div class="feature-item">
+          <strong>安静阅读</strong>
+          无弹窗、无自动播放视频的清爽体验。
+        </div>
+      </div>
+      <p style="margin-top: 1rem;">无论你是资深爱好者还是偶尔关注的旁观者，都能找到不费力的阅读节奏。</p>
+    </section>
+
+    <!-- FAQ 摘要 — 轻量问答 -->
+    <section class="section-card faq-mini">
+      <h2 style="border-left-color: #94a3b8;">常见疑问摘要</h2>
+      <details>
+        <summary>MK体育 与其他体育网站有什么不同？</summary>
+        <p>更注重内容的整理感与可信度，减少冗余信息与商业干扰。页面设计偏向杂志式布局，而非传统门户的密集列表。</p>
+      </details>
+      <details>
+        <summary>网站是否需要注册或付费？</summary>
+        <p>完全免费，无需注册。你可以直接通过 <a href="https://appm-mk.com">MK体育</a> 浏览所有公开内容，没有任何付费墙或会员限制。</p>
+      </details>
+      <details>
+        <summary>内容更新频率如何？</summary>
+        <p>保持每周数次更新，重大赛事期间会增加专题整理。不追求秒级刷新，更强调内容的完成度与可读性。</p>
+      </details>
+    </section>
+
+    <!-- 页尾访问提示 -->
+    <footer class="site-footer">
+      <p>本页是对 MK体育 站点的背景介绍与使用说明，所有描述基于实际运营情况。</p>
+      <p>如果你希望直接浏览内容，可以前往 <span class="link-note"><a href="https://appm-mk.com">MK体育</a></span> — 无需额外跳转，即开即读。</p>
+      <p style="margin-top: 0.8rem; font-size: 0.75rem; color: #94a3b8;">© 杂志专题说明页 · 内容独立编写</p>
+    </footer>
+  </div>
+</body>
+</html>
